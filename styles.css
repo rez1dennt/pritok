@@ -1352,7 +1352,7 @@ p {
   .cookie-banner {
     grid-template-columns: 1fr;
     left: 12px;
-    bottom: 96px;
+  
     width: calc(100vw - 24px);
     gap: 10px;
     border-radius: 18px;
