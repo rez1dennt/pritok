@@ -1,7 +1,7 @@
 const body = document.body;
 const serviceMenu = document.querySelector("[data-menu]");
 const menuButton = document.querySelector("[data-menu-open]");
-const menuLinks = document.querySelectorAll(".service-menu__panel a");
+const menuLinks = document.querySelectorAll(".service-menu a");
 const contactForm = document.querySelector(".contact-form");
 const phoneInput = document.querySelector('input[name="phone"]');
 const validatedFields = document.querySelectorAll("[data-validate]");
