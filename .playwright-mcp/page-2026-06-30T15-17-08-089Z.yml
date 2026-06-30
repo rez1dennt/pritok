@@ -1,0 +1,166 @@
+- generic [active] [ref=e1]:
+  - banner "Главная навигация":
+    - link "Pritok.pro" [ref=e2] [cursor=pointer]:
+      - /url: "#top"
+      - img "Pritok.pro" [ref=e3]
+    - button "Открыть меню" [ref=e4] [cursor=pointer]
+  - complementary:
+    - generic:
+      - link:
+        - /url: "#audience"
+        - text: Для кого мы работаем
+      - link:
+        - /url: "#services"
+        - text: Что мы делаем
+      - link:
+        - /url: "#formats"
+        - text: Формы работы
+      - link:
+        - /url: "#artists"
+        - text: Артисты
+      - link:
+        - /url: "#education"
+        - text: Образование
+      - link:
+        - /url: "#contact"
+        - text: Оставить заявку
+  - main [ref=e8]:
+    - region "Агентство по упаковке и продвижению музыкальных проектов" [ref=e9]:
+      - generic [ref=e12]:
+        - paragraph [ref=e13]: Pritok.pro
+        - heading "Агентство по упаковке и продвижению музыкальных проектов" [level=1] [ref=e14]
+        - paragraph [ref=e15]: От идеи до готового продукта.
+        - generic [ref=e16]:
+          - link "Оставить заявку" [ref=e17] [cursor=pointer]:
+            - /url: "#contact"
+          - link "Задать вопрос в Telegram" [ref=e18] [cursor=pointer]:
+            - /url: https://t.me/
+    - region "Проекты, которым нужна сильная упаковка и понятный запуск" [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - paragraph [ref=e22]: Для кого мы работаем
+          - heading "Проекты, которым нужна сильная упаковка и понятный запуск" [level=2] [ref=e23]
+        - generic "Категории клиентов" [ref=e24]:
+          - article [ref=e25]:
+            - text: "01"
+            - heading "Музыкальные коллективы" [level=3] [ref=e26]
+          - article [ref=e27]:
+            - text: "02"
+            - heading "Артисты театра и кино" [level=3] [ref=e28]
+          - article [ref=e29]:
+            - text: "03"
+            - heading "Музыкальные проекты" [level=3] [ref=e30]
+          - article [ref=e31]:
+            - text: "04"
+            - heading "Концертные площадки" [level=3] [ref=e32]
+          - article [ref=e33]:
+            - text: "05"
+            - heading "Event-агентства" [level=3] [ref=e34]
+    - region "Собираем проект в готовый продукт" [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - paragraph [ref=e38]: Что мы делаем
+          - heading "Собираем проект в готовый продукт" [level=2] [ref=e39]
+          - paragraph [ref=e40]: "Без лишних формулировок: упаковка, позиционирование, медиа, продвижение и концертный запуск."
+        - list [ref=e42]:
+          - listitem [ref=e43]:
+            - generic [ref=e44]: "1"
+            - paragraph [ref=e45]: Упаковка артиста
+          - listitem [ref=e46]:
+            - generic [ref=e47]: "2"
+            - paragraph [ref=e48]: Позиционирование
+          - listitem [ref=e49]:
+            - generic [ref=e50]: "3"
+            - paragraph [ref=e51]: Создание концертной программы
+          - listitem [ref=e52]:
+            - generic [ref=e53]: "4"
+            - paragraph [ref=e54]: Фото / видео / медиа
+          - listitem [ref=e55]:
+            - generic [ref=e56]: "5"
+            - paragraph [ref=e57]: Продвижение
+          - listitem [ref=e58]:
+            - generic [ref=e59]: "6"
+            - paragraph [ref=e60]: Организация концертов
+    - region "Формы работы" [ref=e61]:
+      - generic [ref=e62]:
+        - heading "Формы работы" [level=2] [ref=e63]
+        - paragraph [ref=e64]: "Подбираем формат под задачу: от одной консультации до сопровождения запуска."
+        - generic "Формы работы" [ref=e65]:
+          - generic [ref=e66]: Разовая консультация
+          - generic [ref=e67]: Упаковка проекта
+          - generic [ref=e68]: Запуск концерта
+          - generic [ref=e69]: Продюсерское сопровождение
+    - region "Проекты, с которыми мы работаем" [ref=e70]:
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - paragraph [ref=e73]: Артисты
+          - heading "Проекты, с которыми мы работаем" [level=2] [ref=e74]
+        - generic [ref=e75]:
+          - article [ref=e76]:
+            - text: "01"
+            - heading "New Life Brass" [level=3] [ref=e77]
+          - article [ref=e78]:
+            - text: "02"
+            - heading "Jazz B’s Poems" [level=3] [ref=e79]
+    - region "Образовательные интенсивы и мастер-классы" [ref=e80]:
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - paragraph [ref=e83]: Образование
+          - heading "Образовательные интенсивы и мастер-классы" [level=2] [ref=e84]
+        - generic [ref=e85]:
+          - paragraph [ref=e86]: Проводим интенсивы для артистов, музыкальных команд и проектов, которым нужно упаковать материал и понять дальнейший маршрут.
+          - paragraph [ref=e87]: На занятиях разбираем позиционирование, концертную программу, медиаматериалы и продвижение. Формат подходит для подготовки к запуску, перезапуску или выходу на новую аудиторию.
+          - paragraph [ref=e88]: "Работаем прикладно: с конкретным проектом, задачами и планом действий."
+    - region "Оставьте заявку" [ref=e89]:
+      - generic [ref=e92]:
+        - paragraph [ref=e93]: Форма заявки
+        - heading "Оставьте заявку" [level=2] [ref=e94]
+        - paragraph [ref=e95]: Напишите контакт и коротко опишите задачу. Ответим в Telegram или свяжемся по телефону.
+        - generic [ref=e96]:
+          - textbox "Имя" [ref=e98]
+          - textbox "Телефон" [ref=e101]:
+            - /placeholder: +7 (000) 000-00-00
+          - textbox "Никнейм в Telegram" [ref=e104]
+          - textbox "Проект или вопрос" [ref=e107]:
+            - /placeholder: Проект / вопрос
+          - generic [ref=e109]:
+            - button "Оставить заявку" [ref=e110] [cursor=pointer]
+            - link "Задать вопрос в Telegram" [ref=e111] [cursor=pointer]:
+              - /url: https://t.me/
+        - paragraph [ref=e112]:
+          - text: Нажимая кнопку, вы соглашаетесь с
+          - link "политикой конфиденциальности" [ref=e113] [cursor=pointer]:
+            - /url: privacy.html
+          - text: и
+          - link "обработкой персональных данных" [ref=e114] [cursor=pointer]:
+            - /url: consent.html
+          - text: .
+  - contentinfo [ref=e115]:
+    - generic [ref=e116]:
+      - generic [ref=e117]:
+        - img "Pritok.pro" [ref=e118]
+        - paragraph [ref=e119]: Pritok.pro — упаковка и продвижение музыкальных проектов.
+      - navigation "Нижнее меню" [ref=e120]:
+        - link "Для кого" [ref=e121] [cursor=pointer]:
+          - /url: "#audience"
+        - link "Услуги" [ref=e122] [cursor=pointer]:
+          - /url: "#services"
+        - link "Артисты" [ref=e123] [cursor=pointer]:
+          - /url: "#artists"
+        - link "Образование" [ref=e124] [cursor=pointer]:
+          - /url: "#education"
+        - link "Заявка" [ref=e125] [cursor=pointer]:
+          - /url: "#contact"
+      - navigation "Документы" [ref=e126]:
+        - link "Политика конфиденциальности" [ref=e127] [cursor=pointer]:
+          - /url: privacy.html
+        - link "Согласие на обработку данных" [ref=e128] [cursor=pointer]:
+          - /url: consent.html
+        - link "info@pritok.pro" [ref=e129] [cursor=pointer]:
+          - /url: mailto:info@pritok.pro
+    - generic [ref=e130]:
+      - generic [ref=e131]: © 2026 Pritok.pro
+      - generic: PRITOK
+  - generic [ref=e132]:
+    - paragraph [ref=e133]: Мы используем файлы cookie для корректной работы сайта и анализа посещаемости. Продолжая пользоваться сайтом, вы соглашаетесь с их использованием.
+    - button "Принять" [ref=e134] [cursor=pointer]
