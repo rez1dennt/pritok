@@ -23,14 +23,14 @@
 }
 
 :root {
-  --black: #000;
-  --ink: #101313;
-  --panel: #151918;
-  --panel-2: #202423;
-  --line: rgba(255, 255, 255, 0.14);
-  --soft-line: rgba(255, 255, 255, 0.08);
+  --black: #070706;
+  --ink: #15130f;
+  --panel: #1b1c18;
+  --panel-2: #282821;
+  --line: rgba(244, 226, 178, 0.2);
+  --soft-line: rgba(244, 226, 178, 0.12);
   --white: #fff;
-  --muted: #b8b2a9;
+  --muted: #d2c8b7;
   --gold: #d6b978;
   --orange: #c7a35a;
   --orange-dark: #a9823d;
@@ -53,7 +53,10 @@ body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
-  background: var(--black);
+  background:
+    radial-gradient(circle at 14% 8%, rgba(214, 185, 120, 0.18), transparent 30%),
+    radial-gradient(circle at 88% 34%, rgba(214, 185, 120, 0.1), transparent 34%),
+    linear-gradient(180deg, #0c0b08 0%, var(--black) 34%, #0d0c09 100%);
   color: var(--white);
   font-family: "AtypDisplay", Arial, sans-serif;
   text-rendering: geometricPrecision;
@@ -97,7 +100,9 @@ p {
 }
 
 .section-dark {
-  background: var(--black);
+  background:
+    radial-gradient(circle at 8% 12%, rgba(214, 185, 120, 0.08), transparent 30%),
+    linear-gradient(180deg, rgba(14, 13, 10, 0.96), rgba(7, 7, 6, 0.98));
   color: var(--white);
 }
 
@@ -132,8 +137,8 @@ p {
 
 .brand {
   display: flex;
-  width: clamp(158px, 12.4vw, 238px);
-  height: clamp(48px, 4vw, 76px);
+  width: clamp(188px, 14vw, 268px);
+  height: clamp(58px, 4.8vw, 88px);
   align-items: center;
   justify-content: center;
   padding: 7px 10px;
@@ -156,8 +161,8 @@ p {
   gap: 8px;
   padding: 8px;
   border-radius: var(--radius-pill);
-  background: rgba(20, 23, 23, 0.86);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  background: rgba(244, 237, 218, 0.92);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(214, 185, 120, 0.3);
   backdrop-filter: blur(18px);
 }
 
@@ -169,8 +174,8 @@ p {
   gap: 10px;
   padding: 0 22px;
   border-radius: var(--radius-pill);
-  color: #c9c2b8;
-  font-size: clamp(13px, 0.95vw, 18px);
+  color: #1a1711;
+  font-size: clamp(14px, 1.02vw, 19px);
   font-weight: 500;
   line-height: 1;
   transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
@@ -178,8 +183,8 @@ p {
 
 .header-nav a:hover,
 .header-nav a:focus-visible {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--white);
+  background: rgba(214, 185, 120, 0.42);
+  color: #111;
   transform: translateY(-1px);
 }
 
@@ -194,11 +199,11 @@ p {
   align-items: center;
   justify-content: center;
   padding: 0 26px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(214, 185, 120, 0.42);
   border-radius: var(--radius-pill);
-  background: rgba(20, 23, 23, 0.9);
-  color: var(--white);
-  font-size: clamp(13px, 0.95vw, 18px);
+  background: rgba(244, 237, 218, 0.92);
+  color: #111;
+  font-size: clamp(14px, 1.02vw, 19px);
   font-weight: 500;
   line-height: 1;
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
@@ -208,8 +213,8 @@ p {
 
 .header-telegram:hover,
 .header-telegram:focus-visible {
-  border-color: rgba(43, 171, 238, 0.5);
-  background: #202423;
+  border-color: rgba(43, 171, 238, 0.48);
+  background: rgba(255, 248, 228, 0.96);
   transform: translateY(-1px);
 }
 
@@ -445,7 +450,7 @@ p {
 
 .hero h1 {
   margin-top: 12px;
-  font-size: clamp(44px, 4vw, 78px);
+  font-size: clamp(46px, 3.9vw, 78px);
   font-weight: 500;
   line-height: 0.98;
   letter-spacing: 0;
@@ -454,7 +459,7 @@ p {
 .hero-lead {
   margin-top: 28px;
   color: var(--white);
-  font-size: clamp(20px, 1.45vw, 28px);
+  font-size: clamp(20px, 1.35vw, 24px);
   line-height: 1.25;
 }
 
@@ -475,6 +480,7 @@ p {
   border-radius: 16px;
   cursor: pointer;
   padding: 0 28px;
+  font-size: clamp(16px, 1.05vw, 19px);
   font-weight: 700;
   line-height: 1;
   transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
@@ -504,6 +510,17 @@ p {
   background: #2a2f2e;
 }
 
+.button--dark.telegram-link {
+  border-color: rgba(228, 207, 148, 0.5);
+  background: linear-gradient(135deg, var(--gold-soft), var(--orange-dark));
+  color: #111;
+}
+
+.button--dark.telegram-link:hover {
+  border-color: rgba(228, 207, 148, 0.76);
+  background: linear-gradient(135deg, #ead9a7, #b28d45);
+}
+
 .audience,
 .services,
 .formats,
@@ -524,14 +541,21 @@ p {
 .section-head h2 {
   grid-column: 1 / -1;
   max-width: 1080px;
-  font-size: clamp(38px, 3.55vw, 70px);
+  color: var(--white);
+  font-size: clamp(40px, 3.55vw, 68px);
   font-weight: 500;
   line-height: 1;
+  text-shadow: 0 16px 40px rgba(0, 0, 0, 0.48);
 }
 
 .audience {
   position: relative;
   overflow: hidden;
+}
+
+.audience .section-head {
+  position: relative;
+  z-index: 2;
 }
 
 .audience::before {
@@ -544,7 +568,7 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.46;
+  opacity: 0.34;
   content: "";
 }
 
@@ -564,8 +588,9 @@ p {
   border: 1px solid rgba(214, 185, 120, 0.22);
   border-radius: clamp(24px, 2vw, 38px);
   background:
-    linear-gradient(180deg, rgba(16, 19, 19, 0.6), rgba(16, 19, 19, 0.82)),
-    linear-gradient(145deg, rgba(28, 32, 31, 0.96), rgba(14, 17, 17, 0.96));
+    radial-gradient(circle at 78% 18%, rgba(214, 185, 120, 0.16), transparent 28%),
+    linear-gradient(180deg, rgba(24, 23, 18, 0.56), rgba(18, 17, 13, 0.78)),
+    linear-gradient(145deg, rgba(35, 34, 27, 0.98), rgba(18, 17, 13, 0.96));
   background-position: center;
   background-size: cover;
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.32);
@@ -588,35 +613,35 @@ p {
 
 .audience-card:nth-child(1) {
   background-image:
-    linear-gradient(180deg, rgba(16, 19, 19, 0.62), rgba(16, 19, 19, 0.84)),
+    linear-gradient(180deg, rgba(24, 23, 18, 0.54), rgba(18, 17, 13, 0.78)),
     url("assets/audience-collectives.jpg");
   background-position: center;
 }
 
 .audience-card:nth-child(2) {
   background-image:
-    linear-gradient(180deg, rgba(16, 19, 19, 0.62), rgba(16, 19, 19, 0.84)),
+    linear-gradient(180deg, rgba(24, 23, 18, 0.54), rgba(18, 17, 13, 0.78)),
     url("assets/audience-theatre.jpg");
   background-position: center 42%;
 }
 
 .audience-card:nth-child(3) {
   background-image:
-    linear-gradient(180deg, rgba(16, 19, 19, 0.62), rgba(16, 19, 19, 0.84)),
+    linear-gradient(180deg, rgba(24, 23, 18, 0.54), rgba(18, 17, 13, 0.78)),
     url("assets/audience-projects.png");
   background-position: center 42%;
 }
 
 .audience-card:nth-child(4) {
   background-image:
-    linear-gradient(180deg, rgba(16, 19, 19, 0.62), rgba(16, 19, 19, 0.84)),
+    linear-gradient(180deg, rgba(24, 23, 18, 0.54), rgba(18, 17, 13, 0.78)),
     url("assets/audience-venues.jpg");
   background-position: center;
 }
 
 .audience-card:nth-child(5) {
   background-image:
-    linear-gradient(180deg, rgba(16, 19, 19, 0.62), rgba(16, 19, 19, 0.84)),
+    linear-gradient(180deg, rgba(24, 23, 18, 0.54), rgba(18, 17, 13, 0.78)),
     url("assets/audience-events.jpg");
   background-position: center 34%;
 }
@@ -659,10 +684,12 @@ p {
 .contact h2 {
   margin-top: 12px;
   max-width: 720px;
-  font-size: clamp(38px, 3.55vw, 70px);
+  color: var(--white);
+  font-size: clamp(40px, 3.55vw, 68px);
   font-weight: 500;
   line-height: 1;
   overflow-wrap: break-word;
+  text-shadow: 0 16px 40px rgba(0, 0, 0, 0.42);
 }
 
 .services-copy p,
@@ -672,14 +699,16 @@ p {
   max-width: 700px;
   margin-top: 28px;
   color: var(--muted);
-  font-size: clamp(18px, 1.5vw, 20px);
+  font-size: clamp(18px, 1.28vw, 21px);
   line-height: 1.42;
 }
 
 .services-board {
   border: 1px solid var(--soft-line);
   border-radius: clamp(32px, 4vw, 76px);
-  background: var(--panel);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(214, 185, 120, 0.12), transparent 30%),
+    var(--panel);
   padding: clamp(30px, 4vw, 76px);
   overflow: hidden;
 }
@@ -713,7 +742,7 @@ p {
 }
 
 .service-list p {
-  font-size: clamp(17px, 1.15vw, 22px);
+  font-size: clamp(18px, 1.12vw, 21px);
   font-weight: 700;
   line-height: 1.18;
 }
@@ -749,7 +778,7 @@ p {
   background: var(--panel-2);
   color: #d4cbc0;
   padding: 2px clamp(24px, 2.5vw, 48px) 0;
-  font-size: clamp(17px, 1.2vw, 23px);
+  font-size: clamp(18px, 1.12vw, 21px);
   font-weight: 700;
   line-height: 1;
   text-align: center;
@@ -820,7 +849,7 @@ p {
 
 .artist-list h3 {
   margin-top: clamp(110px, 9vw, 170px);
-  font-size: clamp(34px, 3vw, 58px);
+  font-size: clamp(34px, 2.8vw, 52px);
   font-weight: 500;
   line-height: 1;
 }
@@ -847,12 +876,17 @@ p {
 }
 
 .contact-visual {
+  position: relative;
+  overflow: hidden;
   min-height: 720px;
-  background-image: url("assets/contact-form-art.png");
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.48)),
+    url("assets/contact-vinyl-photo.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 
 .contact-content {
   padding: clamp(52px, 5vw, 96px);
@@ -1102,29 +1136,34 @@ p {
 }
 
 .legal-header img {
-  width: 190px;
+  width: clamp(160px, 15vw, 220px);
 }
 
 .legal-header a:not(.brand-link) {
   color: #fff;
   font-weight: 700;
+  font-size: 16px;
 }
 
 .legal-document {
-  width: min(980px, calc(100vw - 40px));
+  width: min(900px, calc(100vw - 48px));
   margin: 0 auto;
   padding: 72px 0 96px;
 }
 
 .legal-document h1 {
-  font-size: clamp(36px, 4vw, 72px);
+  max-width: 100%;
+  font-size: clamp(34px, 4vw, 64px);
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
 }
 
 .legal-document h2 {
   margin-top: 42px;
-  font-size: 26px;
+  font-size: clamp(23px, 2vw, 28px);
+  line-height: 1.16;
+  overflow-wrap: anywhere;
 }
 
 .legal-document p,
@@ -1132,6 +1171,13 @@ p {
   color: #333;
   font-size: 18px;
   line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.legal-document a {
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .legal-document p {
@@ -1141,6 +1187,71 @@ p {
 .legal-document ul {
   margin: 18px 0 0;
   padding-left: 24px;
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .brand {
+    width: clamp(198px, 15vw, 232px);
+    height: clamp(62px, 5vw, 78px);
+  }
+
+  .header-nav a,
+  .header-telegram,
+  .button {
+    font-size: 16px;
+  }
+
+  .eyebrow,
+  .audience-card span,
+  .artist-list span {
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 50px;
+    line-height: 1;
+  }
+
+  .section-head h2,
+  .services-copy h2,
+  .formats h2,
+  .education h2,
+  .contact h2 {
+    font-size: 48px;
+    line-height: 1.02;
+  }
+
+  .hero-lead,
+  .services-copy p,
+  .formats-layout > p,
+  .education-text,
+  .contact-content > p {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .audience-card h3,
+  .service-list p,
+  .format-pills span {
+    font-size: 20px;
+    line-height: 1.14;
+  }
+
+  .artist-list h3 {
+    font-size: 40px;
+    line-height: 1.02;
+  }
+
+  .contact-form input {
+    font-size: 18px;
+  }
+
+  .footer-layout p,
+  .footer-layout a,
+  .footer-bottom,
+  .form-note {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -1455,5 +1566,47 @@ p {
   .legal-header .container {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .legal-page .container {
+    width: calc(100vw - 32px);
+  }
+
+  .legal-header {
+    padding: 24px 0 28px;
+  }
+
+  .legal-header img {
+    width: 168px;
+  }
+
+  .legal-header a:not(.brand-link) {
+    font-size: 15px;
+  }
+
+  .legal-document {
+    width: calc(100vw - 32px);
+    padding: 56px 0 72px;
+  }
+
+  .legal-document h1 {
+    font-size: clamp(28px, 8vw, 36px);
+    line-height: 1.08;
+  }
+
+  .legal-document h2 {
+    margin-top: 34px;
+    font-size: 22px;
+    line-height: 1.18;
+  }
+
+  .legal-document p,
+  .legal-document li {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .legal-document ul {
+    padding-left: 18px;
   }
 }
