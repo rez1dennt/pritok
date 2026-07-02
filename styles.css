@@ -161,8 +161,8 @@ p {
   gap: 8px;
   padding: 8px;
   border-radius: var(--radius-pill);
-  background: rgba(244, 237, 218, 0.92);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(214, 185, 120, 0.3);
+  background: linear-gradient(135deg, rgba(228, 207, 148, 0.96), rgba(169, 130, 61, 0.94));
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(255, 246, 213, 0.35);
   backdrop-filter: blur(18px);
 }
 
@@ -174,7 +174,7 @@ p {
   gap: 10px;
   padding: 0 22px;
   border-radius: var(--radius-pill);
-  color: #1a1711;
+  color: #111;
   font-size: clamp(14px, 1.02vw, 19px);
   font-weight: 500;
   line-height: 1;
@@ -183,7 +183,7 @@ p {
 
 .header-nav a:hover,
 .header-nav a:focus-visible {
-  background: rgba(214, 185, 120, 0.42);
+  background: rgba(255, 248, 228, 0.36);
   color: #111;
   transform: translateY(-1px);
 }
@@ -199,9 +199,9 @@ p {
   align-items: center;
   justify-content: center;
   padding: 0 26px;
-  border: 1px solid rgba(214, 185, 120, 0.42);
+  border: 1px solid rgba(255, 246, 213, 0.36);
   border-radius: var(--radius-pill);
-  background: rgba(244, 237, 218, 0.92);
+  background: linear-gradient(135deg, rgba(228, 207, 148, 0.98), rgba(169, 130, 61, 0.96));
   color: #111;
   font-size: clamp(14px, 1.02vw, 19px);
   font-weight: 500;
@@ -213,8 +213,8 @@ p {
 
 .header-telegram:hover,
 .header-telegram:focus-visible {
-  border-color: rgba(43, 171, 238, 0.48);
-  background: rgba(255, 248, 228, 0.96);
+  border-color: rgba(255, 248, 228, 0.7);
+  background: linear-gradient(135deg, #ead9a7, #b28d45);
   transform: translateY(-1px);
 }
 
@@ -444,22 +444,22 @@ p {
 }
 
 .hero-copy {
-  width: min(740px, 52vw);
+  width: min(850px, 58vw);
   min-width: 0;
 }
 
 .hero h1 {
-  margin-top: 12px;
+  margin-top: 0;
   font-size: clamp(46px, 3.9vw, 78px);
   font-weight: 500;
-  line-height: 0.98;
+  line-height: 1.02;
   letter-spacing: 0;
 }
 
 .hero-lead {
-  margin-top: 28px;
+  margin-top: 24px;
   color: var(--white);
-  font-size: clamp(20px, 1.35vw, 24px);
+  font-size: clamp(22px, 1.55vw, 28px);
   line-height: 1.25;
 }
 
@@ -481,7 +481,7 @@ p {
   cursor: pointer;
   padding: 0 28px;
   font-size: clamp(16px, 1.05vw, 19px);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
   transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
 }
@@ -646,13 +646,33 @@ p {
   background-position: center 34%;
 }
 
-.audience-card span,
-.artist-list span {
+.audience-card > span,
+.artist-card__content > span {
   position: relative;
   z-index: 1;
-  color: var(--orange);
+  display: inline-grid;
+  width: 46px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(20, 18, 13, 0) 0 29%, rgba(20, 18, 13, 0.22) 30% 32%, rgba(20, 18, 13, 0) 33%),
+    radial-gradient(circle, #f6e4a6 0 58%, #caa154 59% 100%);
+  color: #111;
   font-size: 14px;
   font-weight: 700;
+  line-height: 1;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28), 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+.audience-card > span::before,
+.artist-card__content > span::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255, 248, 214, 0.88) 0 28%, rgba(255, 248, 214, 0) 30%);
 }
 
 .audience-card h3 {
@@ -703,6 +723,18 @@ p {
   line-height: 1.42;
 }
 
+.services-copy > .eyebrow,
+.contact-content > .eyebrow,
+.section-head > .eyebrow {
+  max-width: none;
+  margin-top: 0;
+  color: var(--orange);
+  font-size: clamp(12px, 0.84vw, 16px);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .services-board {
   border: 1px solid var(--soft-line);
   border-radius: clamp(32px, 4vw, 76px);
@@ -749,12 +781,13 @@ p {
 
 .formats-layout {
   display: grid;
-  grid-template-columns: minmax(260px, 0.85fr) minmax(360px, 1.15fr);
+  grid-template-columns: 1fr;
   gap: 42px;
   align-items: end;
 }
 
 .formats-layout > p {
+  display: none;
   max-width: 520px;
   margin-top: 0;
   justify-self: end;
@@ -803,13 +836,16 @@ p {
 .artist-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
 .artist-list article {
   position: relative;
   overflow: hidden;
-  min-height: clamp(240px, 18vw, 350px);
+  display: grid;
+  min-height: clamp(420px, 32vw, 560px);
+  align-content: space-between;
+  gap: 28px;
   padding: clamp(24px, 2vw, 38px);
   border: 1px solid var(--line);
   border-radius: clamp(26px, 2.2vw, 42px);
@@ -824,7 +860,7 @@ p {
 .artist-list article::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.62));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.78));
   content: "";
 }
 
@@ -848,10 +884,72 @@ p {
 }
 
 .artist-list h3 {
-  margin-top: clamp(110px, 9vw, 170px);
+  margin-top: 22px;
   font-size: clamp(34px, 2.8vw, 52px);
   font-weight: 500;
   line-height: 1;
+}
+
+.artist-card__content {
+  max-width: 560px;
+}
+
+.artist-card__content p {
+  max-width: 520px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: clamp(16px, 1vw, 18px);
+  line-height: 1.42;
+}
+
+.artist-media {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.artist-media__item {
+  min-height: 112px;
+  overflow: hidden;
+  border: 1px solid rgba(244, 226, 178, 0.18);
+  border-radius: 18px;
+  background-position: center;
+  background-size: cover;
+}
+
+.artist-media__video {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(228, 207, 148, 0.2), transparent 34%),
+    rgba(15, 15, 13, 0.82);
+  color: var(--gold-soft);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.artist-card--newlife .artist-media__photo--main {
+  background-image: url("assets/newlifebrass.jpg");
+}
+
+.artist-card--newlife .artist-media__photo--second {
+  background-image: url("assets/audience-collectives.jpg");
+}
+
+.artist-card--newlife .artist-media__photo--third {
+  background-image: url("assets/audience-venues.jpg");
+}
+
+.artist-card--jazz .artist-media__photo--main {
+  background-image: url("assets/jazz.jpg");
+}
+
+.artist-card--jazz .artist-media__photo--second {
+  background-image: url("assets/audience-theatre.jpg");
+}
+
+.artist-card--jazz .artist-media__photo--third {
+  background-image: url("assets/audience-events.jpg");
 }
 
 .education {
@@ -1202,13 +1300,13 @@ p {
   }
 
   .eyebrow,
-  .audience-card span,
-  .artist-list span {
+  .audience-card > span,
+  .artist-card__content > span {
     font-size: 14px;
   }
 
   .hero h1 {
-    font-size: 50px;
+    font-size: 52px;
     line-height: 1;
   }
 
@@ -1221,12 +1319,16 @@ p {
     line-height: 1.02;
   }
 
-  .hero-lead,
+  .hero-lead {
+    font-size: 22px;
+    line-height: 1.34;
+  }
+
   .services-copy p,
   .formats-layout > p,
   .education-text,
   .contact-content > p {
-    font-size: 18px;
+    font-size: 19px;
     line-height: 1.45;
   }
 
@@ -1240,6 +1342,10 @@ p {
   .artist-list h3 {
     font-size: 40px;
     line-height: 1.02;
+  }
+
+  .artist-card__content p {
+    font-size: 17px;
   }
 
   .contact-form input {
@@ -1307,6 +1413,14 @@ p {
     grid-column: 1 / -1;
   }
 
+  .artist-list {
+    grid-template-columns: 1fr;
+  }
+
+  .artist-media__item {
+    min-height: 140px;
+  }
+
   .services-layout,
   .education-layout,
   .formats-layout,
@@ -1367,6 +1481,12 @@ p {
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .service-menu.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   .service-menu__panel {
@@ -1487,9 +1607,29 @@ p {
     min-height: 190px;
   }
 
-  .audience-card h3,
-  .artist-list h3 {
+  .audience-card h3 {
     margin-top: 78px;
+  }
+
+  .artist-list article {
+    min-height: auto;
+    gap: 22px;
+  }
+
+  .artist-list h3 {
+    margin-top: 18px;
+  }
+
+  .artist-card__content p {
+    font-size: 15px;
+  }
+
+  .artist-media {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .artist-media__item {
+    min-height: 112px;
   }
 
   .format-pills span {
