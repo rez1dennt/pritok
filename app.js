@@ -10,6 +10,8 @@ const formStatus = document.querySelector("[data-form-status]");
 const cookieBanner = document.querySelector("[data-cookie-banner]");
 const cookieAcceptButton = document.querySelector("[data-cookie-accept]");
 const COOKIE_KEY = "pritok_cookie_accepted";
+const FORM_COOLDOWN_KEY = "pritok_form_last_submit";
+const FORM_COOLDOWN_MS = 15000;
 let formStatusTimer;
 
 function getScrollbarWidth() {
@@ -182,6 +184,46 @@ function clearFormValidation() {
   });
 }
 
+function cleanFormValue(value, maxLength) {
+  return value
+    .trim()
+    .replace(/[\u0000-\u001f\u007f<>]/g, "")
+    .slice(0, maxLength);
+}
+
+function getFormCooldownLeft() {
+  let lastSubmit = 0;
+
+  try {
+    lastSubmit = Number(localStorage.getItem(FORM_COOLDOWN_KEY) || 0);
+  } catch {
+    lastSubmit = 0;
+  }
+
+  return Math.max(0, FORM_COOLDOWN_MS - (Date.now() - lastSubmit));
+}
+
+function rememberFormSubmit() {
+  try {
+    localStorage.setItem(FORM_COOLDOWN_KEY, String(Date.now()));
+  } catch {
+    // Cooldown is a convenience layer; the form should still work without storage.
+  }
+}
+
+function buildFormPayload() {
+  const formData = new FormData(contactForm);
+
+  return {
+    _subject: "Новая заявка с сайта Pritok.pro",
+    _template: "table",
+    name: cleanFormValue(String(formData.get("name") || ""), 80),
+    phone: cleanFormValue(String(formData.get("phone") || ""), 24),
+    telegram: cleanFormValue(String(formData.get("telegram") || ""), 32),
+    comment: cleanFormValue(String(formData.get("comment") || ""), 420),
+  };
+}
+
 function showFormStatus(message, type = "success") {
   if (!formStatus) return;
 
@@ -242,11 +284,25 @@ if (contactForm) {
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    if (contactForm.querySelector('[name="_honey"]')?.value) {
+      contactForm.reset();
+      clearFormValidation();
+      showFormStatus("Заявка отправлена. Мы свяжемся с вами по указанным контактам.");
+      return;
+    }
+
     if (!validateContactForm()) {
       if (formStatus) {
         formStatus.hidden = true;
       }
 
+      return;
+    }
+
+    const cooldownLeft = getFormCooldownLeft();
+
+    if (cooldownLeft > 0) {
+      showFormStatus(`Подождите ${Math.ceil(cooldownLeft / 1000)} сек. перед повторной отправкой.`, "error");
       return;
     }
 
@@ -256,8 +312,9 @@ if (contactForm) {
     try {
       const response = await fetch(contactForm.action, {
         method: contactForm.method || "POST",
-        body: new FormData(contactForm),
+        body: JSON.stringify(buildFormPayload()),
         headers: {
+          "Content-Type": "application/json",
           Accept: "application/json",
         },
       });
@@ -269,6 +326,7 @@ if (contactForm) {
 
       contactForm.reset();
       clearFormValidation();
+      rememberFormSubmit();
       showFormStatus(result.message || "Заявка отправлена. Мы свяжемся с вами по указанным контактам.");
     } catch (error) {
       showFormStatus(error.message || "Не удалось отправить заявку. Попробуйте позже или напишите в Telegram.", "error");

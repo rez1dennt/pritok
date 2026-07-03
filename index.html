@@ -187,10 +187,12 @@
           <p class="eyebrow">Форма заявки</p>
           <h2 id="contact-title">Оставьте заявку</h2>
           <p>Напишите контакт и коротко опишите задачу. Ответим в Telegram или свяжемся по телефону.</p>
-          <form class="contact-form" action="send.php" method="POST" novalidate>
-            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honey">
+          <form class="contact-form" action="https://formsubmit.co/ajax/pritok.pro@mail.ru" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Новая заявка с сайта Pritok.pro">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honey">
             <label class="form-field">
-              <input name="name" type="text" autocomplete="name" placeholder="Имя" aria-label="Имя" data-validate="name">
+              <input name="name" type="text" autocomplete="name" maxlength="80" placeholder="Имя" aria-label="Имя" data-validate="name">
               <span class="field-error" data-error-for="name" aria-live="polite"></span>
             </label>
             <label class="form-field">
@@ -198,11 +200,11 @@
               <span class="field-error" data-error-for="phone" aria-live="polite"></span>
             </label>
             <label class="form-field">
-              <input name="telegram" type="text" placeholder="Никнейм в Telegram" aria-label="Никнейм в Telegram" data-validate="telegram">
+              <input name="telegram" type="text" maxlength="32" placeholder="Никнейм в Telegram" aria-label="Никнейм в Telegram" data-validate="telegram">
               <span class="field-error" data-error-for="telegram" aria-live="polite"></span>
             </label>
             <label class="form-field">
-              <input name="comment" type="text" placeholder="Проект / вопрос" aria-label="Проект или вопрос" data-validate="comment">
+              <input name="comment" type="text" maxlength="420" placeholder="Проект / вопрос" aria-label="Проект или вопрос" data-validate="comment">
               <span class="field-error" data-error-for="comment" aria-live="polite"></span>
             </label>
             <div class="contact-actions">
