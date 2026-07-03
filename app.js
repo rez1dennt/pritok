@@ -3,6 +3,7 @@ const serviceMenu = document.querySelector("[data-menu]");
 const menuButton = document.querySelector("[data-menu-open]");
 const menuLinks = document.querySelectorAll(".service-menu a");
 const contactForm = document.querySelector(".contact-form");
+const contactSubmitButton = contactForm?.querySelector('button[type="submit"]');
 const phoneInput = document.querySelector('input[name="phone"]');
 const validatedFields = document.querySelectorAll("[data-validate]");
 const formStatus = document.querySelector("[data-form-status]");
@@ -181,6 +182,28 @@ function clearFormValidation() {
   });
 }
 
+function showFormStatus(message, type = "success") {
+  if (!formStatus) return;
+
+  clearTimeout(formStatusTimer);
+  formStatus.textContent = message;
+  formStatus.classList.toggle("is-error", type === "error");
+  formStatus.hidden = false;
+
+  if (type === "success") {
+    formStatusTimer = setTimeout(() => {
+      formStatus.hidden = true;
+    }, 4200);
+  }
+}
+
+function setFormSubmitting(isSubmitting) {
+  if (!contactSubmitButton) return;
+
+  contactSubmitButton.disabled = isSubmitting;
+  contactSubmitButton.textContent = isSubmitting ? "Отправляем..." : "Оставить заявку";
+}
+
 function setMenuState(isOpen) {
   if (!serviceMenu || !menuButton) return;
 
@@ -216,7 +239,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 if (contactForm) {
-  contactForm.addEventListener("submit", (event) => {
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     if (!validateContactForm()) {
@@ -227,16 +250,30 @@ if (contactForm) {
       return;
     }
 
-    contactForm.reset();
-    clearFormValidation();
+    setFormSubmitting(true);
+    showFormStatus("Отправляем заявку...", "success");
 
-    if (formStatus) {
-      clearTimeout(formStatusTimer);
-      formStatus.textContent = "Заявка принята. Мы свяжемся с вами по указанным контактам.";
-      formStatus.hidden = false;
-      formStatusTimer = setTimeout(() => {
-        formStatus.hidden = true;
-      }, 3200);
+    try {
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method || "POST",
+        body: new FormData(contactForm),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || result.ok === false) {
+        throw new Error(result.message || "Не удалось отправить заявку. Попробуйте позже или напишите в Telegram.");
+      }
+
+      contactForm.reset();
+      clearFormValidation();
+      showFormStatus(result.message || "Заявка отправлена. Мы свяжемся с вами по указанным контактам.");
+    } catch (error) {
+      showFormStatus(error.message || "Не удалось отправить заявку. Попробуйте позже или напишите в Telegram.", "error");
+    } finally {
+      setFormSubmitting(false);
     }
   });
 }

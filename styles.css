@@ -347,16 +347,18 @@ p {
 
 .service-menu__panel a:nth-child(2) {
   background-image:
-    linear-gradient(180deg, rgba(17, 21, 21, 0.36), rgba(17, 21, 21, 0.9)),
-    url("assets/audience-projects.png");
-  background-position: center 42%;
+    radial-gradient(circle at 72% 20%, rgba(228, 207, 148, 0.28), transparent 34%),
+    linear-gradient(180deg, rgba(17, 21, 21, 0.24), rgba(17, 21, 21, 0.9)),
+    url("assets/vinyl-grooves.jpg");
+  background-position: center 48%;
 }
 
 .service-menu__panel a:nth-child(3) {
   background-image:
-    linear-gradient(180deg, rgba(17, 21, 21, 0.36), rgba(17, 21, 21, 0.9)),
-    url("assets/contact-art.png");
-  background-position: center 45%;
+    radial-gradient(circle at 28% 26%, rgba(228, 207, 148, 0.26), transparent 32%),
+    linear-gradient(180deg, rgba(17, 21, 21, 0.26), rgba(17, 21, 21, 0.9)),
+    url("assets/vinyl-dusty.jpg");
+  background-position: center;
 }
 
 .service-menu__panel a:nth-child(4) {
@@ -375,9 +377,10 @@ p {
 
 .service-menu__panel a:nth-child(6) {
   background-image:
-    linear-gradient(180deg, rgba(17, 21, 21, 0.36), rgba(17, 21, 21, 0.9)),
-    url("assets/contact-form-art.png");
-  background-position: center 44%;
+    radial-gradient(circle at 76% 22%, rgba(228, 207, 148, 0.24), transparent 30%),
+    linear-gradient(180deg, rgba(17, 21, 21, 0.28), rgba(17, 21, 21, 0.9)),
+    url("assets/vinyl-grooves.jpg");
+  background-position: center 56%;
 }
 
 .service-menu__telegram {
@@ -421,16 +424,21 @@ p {
 .hero-media {
   position: absolute;
   inset: 0;
-  background-image: url("assets/hero-fabric.jpg");
+  background-image:
+    radial-gradient(circle at 78% 16%, rgba(228, 207, 148, 0.2), transparent 28%),
+    url("assets/hkanb2vhy6lxyzerl1n1e30ztfgisfhm.webp");
   background-position: top right;
   background-repeat: no-repeat;
-  background-size: min(100vw, 1920px) auto;
+  background-size: min(1180px, 76vw) auto;
+  opacity: 0.96;
 }
 
 .hero::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.96) 26%, rgba(0, 0, 0, 0.28) 100%);
+  background:
+    radial-gradient(circle at 80% 12%, rgba(214, 185, 120, 0.12), transparent 30%),
+    linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.93) 36%, rgba(0, 0, 0, 0.44) 100%);
   content: "";
 }
 
@@ -564,11 +572,13 @@ p {
   bottom: -10vw;
   width: 72vw;
   height: 52vw;
-  background-image: url("assets/artist-backdrop.jpg");
+  background-image: url("assets/photo-1603850121303-d4ade9e5ba65.avif");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
-  opacity: 0.34;
+  background-size: cover;
+  border-radius: 50%;
+  filter: saturate(0.76) sepia(0.18);
+  opacity: 0.24;
   content: "";
 }
 
@@ -978,8 +988,8 @@ p {
   overflow: hidden;
   min-height: 720px;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.48)),
-    url("assets/contact-vinyl-photo.png");
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.52)),
+    url("assets/photo-1603850121303-d4ade9e5ba65.avif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -994,6 +1004,18 @@ p {
   display: grid;
   gap: 14px;
   margin-top: 42px;
+}
+
+.contact-form .form-honey {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  min-height: 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .form-field {
@@ -1085,6 +1107,17 @@ p {
   line-height: 1.35;
 }
 
+.form-status.is-error {
+  border-color: rgba(255, 118, 118, 0.44);
+  background: rgba(66, 31, 31, 0.34);
+  color: #ffb0a6;
+}
+
+.contact-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
 .site-footer {
   position: relative;
   overflow: hidden;
@@ -1100,11 +1133,13 @@ p {
 .site-footer::before {
   position: absolute;
   inset: 0;
-  background-image: url("assets/artist-backdrop.jpg");
-  background-position: center bottom;
+  background-image:
+    linear-gradient(180deg, rgba(8, 9, 9, 0.6), rgba(8, 9, 9, 0.92)),
+    url("assets/photo-1526394931762-90052e97b376.avif");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.12;
+  opacity: 0.18;
   content: "";
 }
 
@@ -1528,12 +1563,14 @@ p {
   }
 
   .hero-media {
-    background-position: top right -360px;
-    background-size: 900px auto;
+    background-position: top right -330px;
+    background-size: 920px auto;
   }
 
   .hero::after {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.72), #000 70%);
+    background:
+      radial-gradient(circle at 80% 12%, rgba(214, 185, 120, 0.12), transparent 32%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.66), #000 72%);
   }
 
   .hero__inner {

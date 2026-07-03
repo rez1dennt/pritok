@@ -187,7 +187,8 @@
           <p class="eyebrow">Форма заявки</p>
           <h2 id="contact-title">Оставьте заявку</h2>
           <p>Напишите контакт и коротко опишите задачу. Ответим в Telegram или свяжемся по телефону.</p>
-          <form class="contact-form" novalidate>
+          <form class="contact-form" action="send.php" method="POST" novalidate>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honey">
             <label class="form-field">
               <input name="name" type="text" autocomplete="name" placeholder="Имя" aria-label="Имя" data-validate="name">
               <span class="field-error" data-error-for="name" aria-live="polite"></span>
