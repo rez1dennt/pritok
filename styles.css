@@ -656,35 +656,6 @@ p {
   background-position: center 34%;
 }
 
-.audience-card > span,
-.artist-card__content > span {
-  position: relative;
-  z-index: 1;
-  display: inline-grid;
-  width: 46px;
-  aspect-ratio: 1;
-  place-items: center;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(20, 18, 13, 0) 0 29%, rgba(20, 18, 13, 0.22) 30% 32%, rgba(20, 18, 13, 0) 33%),
-    radial-gradient(circle, #f6e4a6 0 58%, #caa154 59% 100%);
-  color: #111;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28), 0 12px 28px rgba(0, 0, 0, 0.28);
-}
-
-.audience-card > span::before,
-.artist-card__content > span::before {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  z-index: -1;
-  border-radius: inherit;
-  background: radial-gradient(circle, rgba(255, 248, 214, 0.88) 0 28%, rgba(255, 248, 214, 0) 30%);
-}
-
 .audience-card h3 {
   position: relative;
   z-index: 1;
@@ -894,7 +865,7 @@ p {
 }
 
 .artist-list h3 {
-  margin-top: 22px;
+  margin-top: 0;
   font-size: clamp(34px, 2.8vw, 52px);
   font-weight: 500;
   line-height: 1;
@@ -1334,9 +1305,7 @@ p {
     font-size: 16px;
   }
 
-  .eyebrow,
-  .audience-card > span,
-  .artist-card__content > span {
+  .eyebrow {
     font-size: 14px;
   }
 
@@ -1654,7 +1623,7 @@ p {
   }
 
   .artist-list h3 {
-    margin-top: 18px;
+    margin-top: 0;
   }
 
   .artist-card__content p {
