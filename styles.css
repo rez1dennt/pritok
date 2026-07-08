@@ -556,6 +556,10 @@ p {
   text-shadow: 0 16px 40px rgba(0, 0, 0, 0.48);
 }
 
+.audience .section-head h2 {
+  margin-top: clamp(22px, 2.4vw, 46px);
+}
+
 .audience {
   position: relative;
   overflow: hidden;
@@ -592,7 +596,12 @@ p {
 
 .audience-card {
   position: relative;
+  display: flex;
+  min-width: 0;
   min-height: clamp(240px, 18vw, 346px);
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 14px;
   overflow: hidden;
   padding: clamp(22px, 1.7vw, 32px);
   border: 1px solid rgba(214, 185, 120, 0.22);
@@ -659,10 +668,18 @@ p {
 .audience-card h3 {
   position: relative;
   z-index: 1;
-  margin-top: clamp(120px, 10vw, 190px);
   font-size: clamp(20px, 1.35vw, 26px);
   font-weight: 700;
   line-height: 1.08;
+}
+
+.audience-card p {
+  position: relative;
+  z-index: 1;
+  max-width: 94%;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(15px, 0.92vw, 18px);
+  line-height: 1.28;
 }
 
 .services-layout,
@@ -705,12 +722,13 @@ p {
 }
 
 .services-copy > .eyebrow,
+.education-layout > div > .eyebrow,
 .contact-content > .eyebrow,
 .section-head > .eyebrow {
   max-width: none;
   margin-top: 0;
   color: var(--orange);
-  font-size: clamp(12px, 0.84vw, 16px);
+  font-size: clamp(18px, 1.2vw, 24px);
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
@@ -1306,7 +1324,7 @@ p {
   }
 
   .eyebrow {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .hero h1 {
@@ -1610,11 +1628,7 @@ p {
 
   .audience-card,
   .artist-list article {
-    min-height: 190px;
-  }
-
-  .audience-card h3 {
-    margin-top: 78px;
+    min-height: 230px;
   }
 
   .artist-list article {
