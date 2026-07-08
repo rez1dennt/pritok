@@ -274,6 +274,12 @@ menuLinks.forEach((link) => {
   link.addEventListener("click", () => setMenuState(false));
 });
 
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1100 && serviceMenu?.classList.contains("is-open")) {
+    setMenuState(false);
+  }
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     setMenuState(false);
