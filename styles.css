@@ -825,21 +825,21 @@ p {
 .artist-list article:nth-child(1) {
   background-image:
     linear-gradient(180deg, rgba(12, 15, 15, 0.2), rgba(12, 15, 15, 0.78)),
-    url("assets/New Life Brass .JPG");
+    url("assets/artist-new-life-brass.jpg");
   background-position: center 42%;
 }
 
 .artist-list article:nth-child(2) {
   background-image:
     linear-gradient(180deg, rgba(12, 15, 15, 0.2), rgba(12, 15, 15, 0.78)),
-    url("assets/Джаз Поэмы.jpg");
+    url("assets/artist-jazz-poems.jpg");
   background-position: center 36%;
 }
 
 .artist-list article:nth-child(3) {
   background-image:
     linear-gradient(180deg, rgba(12, 15, 15, 0.14), rgba(12, 15, 15, 0.8)),
-    url("assets/Кирилл Стехов .jpeg");
+    url("assets/artist-kirill-stekhov.jpeg");
   background-position: center 30%;
 }
 
@@ -1196,7 +1196,7 @@ p {
   display: block;
   width: 26px;
   height: 26px;
-
+  border-radius: 50%;
   object-fit: cover;
 }
 
